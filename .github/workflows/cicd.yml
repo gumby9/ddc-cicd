@@ -16,4 +16,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      # TODO: Add apply changes step here
+      - name: Apply changes
+        uses: ServiceNow/sncicd-apply-changes@2.0.0
+        continue-on-error: true
+        env:
+          nowUsername: ${{ secrets.SN_USERNAME }}
+          nowPassword: ${{ secrets.SN_PASSWORD }}
+          nowSourceInstance: ${{ secrets.SN_INSTANCE_DOMAIN }}
+          appScope: x_cd_grc_app
