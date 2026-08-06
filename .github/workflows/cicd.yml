@@ -1,0 +1,19 @@
+# Cloud Dimensions - ServiceNow CI/CD lab pipeline
+# Branch: lab2-start  (Lab 2 / Lesson 4 - Promote an Application via the CICD API)
+# Starting state: checkout only. Your task is to add the apply-changes step, including its
+# own env block (each sncicd action authenticates on its own; there is no shared
+# authenticate step in the real ServiceNow/sncicd-* action family).
+name: CICD Pipeline
+
+on:
+  push:
+    branches: [lab2-start]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # TODO: Add apply changes step here
